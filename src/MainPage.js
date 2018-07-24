@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import * as BooksAPI from './BooksAPI'
 //Import Book component into MainPage component
 import Book from './Book';
 // this.props.books;
@@ -26,7 +27,6 @@ class MainPage extends Component {
     <Book
     book={book}
     changeShelves={this.props.changeShelves}
-
     />
                       </li>
                     ))
@@ -66,10 +66,10 @@ class MainPage extends Component {
                     .filter(book => book.shelf === 'read')
                     .map(book => (
                       <li key={book.id}>
-      <Book
-      book={book}
-      changeShelves={this.props.changeShelves}
-      />
+    <Book
+    book={book}
+    changeShelves={this.props.changeShelves}
+    />
                       </li>
                     ))
                 }

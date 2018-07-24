@@ -2,20 +2,23 @@ import React, { Component } from 'react';
 
 class Book extends Component {
   render() {
+    let displayedThumbnail = this.props.book.imageLinks ?
+    this.props.book.imageLinks.thumbnail :
+    '';
+
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${this.props.book.imageLinks.smallThumbnail}")` }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${displayedThumbnail}")` }}></div>
           <div className="book-shelf-changer">
-            <select>
+            <select value={this.props.book.shelf}
 
               onChange = {(event) => this.props.changeShelves(
-                //book
-                this.props.books,
-                //shelf
-                event.target.value
+                //book and shelf
+                this.props.book, event.target.value
               )}
-              value = {this.props.book.shelf}
+
+            >
 
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
@@ -26,10 +29,10 @@ class Book extends Component {
           </div>
         </div>
         <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.authors.join(`, `)}</div>
+        <div className="book-authors">{this.props.book.authors}</div>
       </div>
     )
   }
 }
-
+//TODO: .join(`, `) add to authors
 export default Book;
