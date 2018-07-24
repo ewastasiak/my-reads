@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import * as BooksAPI from './BooksAPI'
 
@@ -30,14 +31,16 @@ updateResults = (query) => {
   }
 }
 
-
-
+//from a (Link) className="close-search"
+// onClick={() => this.setState({ showSearchPage: false })}
 
   render() {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
+          <Link to="/" className="close-search">
+            Close
+          </Link>
           <div className="search-books-input-wrapper">
 
             <input
