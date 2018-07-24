@@ -17,6 +17,7 @@ class Book extends Component {
                 //book and shelf
                 this.props.book, event.target.value
               )}
+              value={this.props.currentShelf}
 
             >
 
