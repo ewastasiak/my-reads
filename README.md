@@ -4,7 +4,7 @@ Starter project files: https://github.com/udacity/reactnd-project-myreads-starte
 
 * The app consists of two pages: the main page and the search page.
 * The main page shows 3 shelves with books.
-* Clicking on a + icon on the main page links to search page, where more books may be added to your shelves.
+* Clicking on + icon on the main page links to search page, where more books may be added to your shelves.
 * You can assign the books to shelves, both from the search page and the homepage.
 
 ## TL;DR
