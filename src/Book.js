@@ -25,16 +25,16 @@ class Book extends Component {
               <option value="wantToRead">Want to Read</option>
               <option value="read">Read</option>
               <option value="none">None</option>
-              
+
             </select>
 
           </div>
         </div>
         <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.authors.join(`, `)}</div>
+        <div className="book-authors">{this.props.book.authors}</div>
       </div>
     )
   }
 }
-
+//TODO: .join(`, `) causes error
 export default Book;
