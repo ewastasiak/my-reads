@@ -5,19 +5,19 @@ class Book extends Component {
     let displayedThumbnail = this.props.book.imageLinks ?
     this.props.book.imageLinks.thumbnail :
     '';
-
+// select -----> value={this.props.book.shelf}
     return (
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${displayedThumbnail}")` }}></div>
           <div className="book-shelf-changer">
-            <select value={this.props.book.shelf}
+            <select value={this.props.currentShelf}
 
               onChange = {(event) => this.props.changeShelves(
                 //book and shelf
                 this.props.book, event.target.value
               )}
-              value={this.props.currentShelf}
+
 
             >
 

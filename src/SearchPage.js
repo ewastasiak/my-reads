@@ -58,9 +58,7 @@ updateResults = (query) => {
             {
               this.state.results.map(result => {
                 let shelfName = "none";
-{
-  //check if the book has a category in the array, and set it or not
-}
+
                 this.props.books.map(book => (
                   book.id === result.id ?
                   shelfName = book.shelf :

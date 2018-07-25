@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import * as BooksAPI from './BooksAPI'
+
 //Import Book component into MainPage component
 import Book from './Book';
 // this.props.books;
