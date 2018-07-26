@@ -11,14 +11,33 @@ class BooksApp extends React.Component {
   }
 
   //create method to update state and pass it to mainpage.js file (<Book />) as props so the book component has access to the method, and method needs to be used in book.js (book componenet)
+
+  // changeShelves = (book, shelf) => {
+  //
+  //   BooksAPI.update(book, shelf);
+  //
+  //   // BooksAPI.getAll().then((books) => {
+  //   //   this.setState({ books: books });
+  //   // })
+
   changeShelves = (book, shelf) => {
 
-    BooksAPI.update(book, shelf);
+    BooksAPI.update(book, shelf).then(() => {
 
-    BooksAPI.getAll().then((books) => {
-      this.setState({ books: books });
-    })
+      BooksAPI.getAll().then((books) => {
+        this.setState({ books: books });
+      })
+
+
+    });
+
+    // BooksAPI.getAll().then((books) => {
+    //   this.setState({ books: books });
+    // })
+
   }
+//find the book by id
+//change its shelf value
 
 
   componentDidMount() {
