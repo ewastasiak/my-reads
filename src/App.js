@@ -24,6 +24,9 @@ class BooksApp extends React.Component {
 
     BooksAPI.update(book, shelf).then(() => {
 
+  console.log(`"${book.title}" with id ${book.id} is in "${shelf}" now.
+   ${this.state.books.length}`);
+
       BooksAPI.getAll().then((books) => {
         this.setState({ books: books });
       })
