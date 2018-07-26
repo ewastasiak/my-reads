@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import Book from './Book';
 
 
-class MainPage extends Component {
+function MainPage(props) {
 
-  render() {
 
     return (
 
@@ -26,14 +25,14 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                 {
-                  this.props.books
+                  props.books
                   //bookshelf
                     .filter(book => book.shelf === 'currentlyReading')
                     .map(book => (
                       <li key={book.id}>
                         <Book
                         book={book}
-                        changeShelves={this.props.changeShelves}
+                        changeShelves={props.changeShelves}
                         currentShelf="currentlyReading"
                         />
                       </li>
@@ -49,14 +48,14 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                 {
-                  this.props.books
+                  props.books
                   //bookshelf
                     .filter(book => book.shelf === 'wantToRead')
                     .map(book => (
                       <li key={book.id}>
                         <Book
                         book={book}
-                        changeShelves={this.props.changeShelves}
+                        changeShelves={props.changeShelves}
                         currentShelf="wantToRead"
                         />
                       </li>
@@ -73,14 +72,14 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                 {
-                  this.props.books
+                  props.books
                   //bookshelf
                     .filter(book => book.shelf === 'read')
                     .map(book => (
                       <li key={book.id}>
                         <Book
                         book={book}
-                        changeShelves={this.props.changeShelves}
+                        changeShelves={props.changeShelves}
                         currentShelf="read"
                         />
                       </li>
@@ -103,6 +102,5 @@ class MainPage extends Component {
       </div>
     )
   }
-}
 
 export default MainPage;

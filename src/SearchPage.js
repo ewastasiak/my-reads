@@ -27,9 +27,7 @@ class SearchPage extends Component {
     if (query) {
       BooksAPI.search(query).then((results) => {
         //error handling ternary for search
-        results.error ?
-        this.setState({ results: [] }) :
-        this.setState({ results: results })
+        results.error ? this.setState({ results: [] }) : this.setState({ results: results })
       })
     } else {
       this.setState({ results: [] });
