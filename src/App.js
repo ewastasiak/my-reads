@@ -11,39 +11,16 @@ class BooksApp extends React.Component {
     books: []
   }
 
+
   changeShelves = (book, shelf) => {
 
-    //find the book by id, compare old to new state
-    //change its individual shelf value
-
-    const oldBookState = JSON.stringify(this.state.books);
-
-    const newBookState = this.state.books.map(oldBooksState => {
-      if (book.id === oldBookState.id) {
-        oldBookState.shelf = shelf;
-      }
-      return oldBookState
-    })
-
-    this.setState({ books: newBookState });
-
-    BooksAPI.update(book, shelf).catch(() => {
-      this.setState({books:JSON.parse(oldBookState)})
-    });
 
 
-    return (
-
-      BooksAPI.update(book, shelf).then((shelf) => {
-
-        BooksAPI.getAll().then((books) => {
-                this.setState({ books: books });
-              })
-
-      // console.log(`"${book.title}" with id ${book.id} is in "${book.shelf}" now.
-      // ${this.state.books.length}`);
+   BooksAPI.update(book, shelf).then(() => {
+     BooksAPI.getAll().then((books) => {
+      this.setState({ books: books });
       })
-    );
+   });
 
   }
 
@@ -53,13 +30,14 @@ class BooksApp extends React.Component {
     BooksAPI.getAll().then((books) => {
       this.setState({ books: books })
     })
+
   }
 
 
 
 
   render() {
-      // console.log(this.state.books);
+      console.log(this.state.books);
     return (
       <div className="app">
 
