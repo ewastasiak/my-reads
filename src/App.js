@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import SearchPage from './SearchPage';
 import MainPage from './MainPage';
+import Book from './Book';
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
@@ -10,37 +11,42 @@ class BooksApp extends React.Component {
     books: []
   }
 
-  //create method to update state and pass it to mainpage.js file (<Book />) as props so the book component has access to the method, and method needs to be used in book.js (book componenet)
-
-  // changeShelves = (book, shelf) => {
-  //
-  //   BooksAPI.update(book, shelf);
-  //
-  //   // BooksAPI.getAll().then((books) => {
-  //   //   this.setState({ books: books });
-  //   // })
-
   changeShelves = (book, shelf) => {
 
-    BooksAPI.update(book, shelf).then(() => {
+    //find the book by id, compare old to new state
+    //change its individual shelf value
 
-  console.log(`"${book.title}" with id ${book.id} is in "${shelf}" now.
-   ${this.state.books.length}`);
+    const oldBookState = JSON.stringify(this.state.books);
 
-      BooksAPI.getAll().then((books) => {
-        this.setState({ books: books });
-      })
+    const newBookState = this.state.books.map(oldBooksState => {
+      if (book.id === oldBookState.id) {
+        oldBookState.shelf = shelf;
+      }
+      return oldBookState
+    })
 
+    this.setState({ books: newBookState });
 
+    BooksAPI.update(book, shelf).catch(() => {
+      this.setState({books:JSON.parse(oldBookState)})
     });
 
-    // BooksAPI.getAll().then((books) => {
-    //   this.setState({ books: books });
-    // })
+
+    return (
+
+      BooksAPI.update(book, shelf).then((shelf) => {
+
+        BooksAPI.getAll().then((books) => {
+                this.setState({ books: books });
+              })
+
+      // console.log(`"${book.title}" with id ${book.id} is in "${book.shelf}" now.
+      // ${this.state.books.length}`);
+      })
+    );
 
   }
-//find the book by id
-//change its shelf value
+
 
 
   componentDidMount() {
