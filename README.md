@@ -100,3 +100,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
+# About Udacity and Google Scholarships
+
+[Udacity blog entry announcing Google Developer Challenge 2017/2018](https://blog.udacity.com/2017/09/announcing-60000-challenge-scholarships-udacity-google.html)
+
+[Information on all Google Scholarship tracks](https://www.udacity.com/google-scholarships)
+
+**[Visit Udacity scholarships page](https://www.udacity.com/scholarships)**
+
